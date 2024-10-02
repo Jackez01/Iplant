@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" )
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" );
 
 :root{
     --main-color: #d3ad7f;
@@ -41,6 +41,31 @@ html::-webkit-scrollbar-thumb{
 
 body{
     background: var(--bg);
+}
+
+section{
+    padding: 2rem 7%;
+}
+
+/*botão checkout*/
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--main-color);
+    cursor:pointer;
+    border-radius: .8rem;
+}
+
+.btn:hover{
+    letter-spacing: .2rem;
+}
+
+.header .cart-items-container .btn{
+    width: 100%;
+    text-align: center;
 }
 
 .header{
@@ -96,6 +121,12 @@ body{
     height:5rem;
     display: flex;
     align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.header .search-form.active{
+    transform: scaleY(1);
 }
 
 .header .search-form input{
@@ -106,3 +137,170 @@ body{
     padding: 1rem;
     text-transform: none;
 }
+
+/*barra de pesquisa*/
+.header .search-form label{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color: var(--black)
+}
+
+.header .search-form label:hover{
+    color:var(--main-color);
+}
+
+/* carrinho*/
+.header .cart-items-container{
+    position: absolute;
+    top: 100%; right: -100%;
+    height: calc(100vh - 9.5rem);
+    width: 35rem;
+    background: #fff;
+    padding: 0 1.5rem;
+}
+
+.header .cart-items-container.active{
+    right: 0;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;
+    margin: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header .cart-items-container .cart-item .fa-times{
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.header .cart-items-container .cart-item .fa-times:hover{
+    color: var(--main-color)
+}
+
+/*redimencionar imagem do carrinho*/
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+    font-size: 2rem;
+    color: var(--black);
+    padding-bottom: .5rem;
+}
+
+.header .cart-items-container .cart-item .content .preco{
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+
+/*home*/
+.home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(images/Chat\ gpt-fazendaurbana.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content{
+    max-width: 60rem;
+}
+
+.home .content h3{
+    font-size: 6rem;
+    text-transform: uppercase;
+    color:#fff;
+}
+
+.home .content p{
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8rem;
+    padding: 1rem 0;
+    color:#eee;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*media queries*/
+@media (max-width: 991px) {
+    html{
+        font-size: 55%;
+    }
+
+    header{
+        padding:1.5rem 2rem;
+    }
+
+    section{
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-btn{
+        display: inline-block;
+    }
+
+    header .navbar{
+        color: var(--black);
+        position: absolute;
+        top: 100%; right: -100%;
+        background: #fff;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+    }
+    
+    .header .navbar.active{
+        right: 0;
+    }
+
+    .header .navbar a{
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+    }
+
+    .header .search-form{
+        width: 90%;
+        right: 2rem;
+    }
+
+    .home{
+        background-position: left;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .home .content h3{
+        font-size: 4.5rem;
+    }
+
+    .home .content p{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html{
+        font-size: 50%;
+    }
+}
+
